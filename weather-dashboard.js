@@ -8,7 +8,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
 });
 
 async function fetchWeather(city) {
-  const apiKey = "YOUR_API_KEY_HERE";
+  const apiKey = process.env.OPENWEATHERMAP_API_KEY; // Assuming the API key is injected
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   try {
