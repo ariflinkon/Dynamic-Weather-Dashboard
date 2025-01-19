@@ -1,3 +1,13 @@
+const citiesInBangladesh = [
+  "Dhaka", "Chittagong", "Khulna", "Rajshahi", "Sylhet", "Barisal", "Rangpur", "Comilla", "Narayanganj", "Gazipur"
+];
+
+document.getElementById("cityInput").addEventListener("input", function () {
+  const input = this.value.trim().toLowerCase();
+  const suggestions = citiesInBangladesh.filter(city => city.toLowerCase().startsWith(input));
+  displaySuggestions(suggestions);
+});
+
 document.getElementById("searchButton").addEventListener("click", function () {
   const city = document.getElementById("cityInput").value.trim();
   if (!city) {
@@ -6,6 +16,19 @@ document.getElementById("searchButton").addEventListener("click", function () {
   }
   fetchWeather(city);
 });
+
+function displaySuggestions(suggestions) {
+  const suggestionBox = document.getElementById("suggestionBox");
+  suggestionBox.innerHTML = suggestions.map(city => `<div class="suggestion">${city}</div>`).join('');
+  suggestionBox.style.display = suggestions.length ? 'block' : 'none';
+
+  document.querySelectorAll(".suggestion").forEach(item => {
+    item.addEventListener("click", function () {
+      document.getElementById("cityInput").value = this.textContent;
+      suggestionBox.style.display = 'none';
+    });
+  });
+}
 
 async function fetchWeather(city) {
   const apiKey = process.env.OPENWEATHERMAP_API_KEY; // Assuming the API key is injected
