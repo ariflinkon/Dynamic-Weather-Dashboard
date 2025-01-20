@@ -1,0 +1,19 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .weather-info {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.dark-mode .btn-primary {
+  background-color: #bb86fc;
+  border-color: #bb86fc;
+}
+
+.dark-mode .btn-secondary {
+  background-color: #03dac6;
+  border-color: #03dac6;
+}
