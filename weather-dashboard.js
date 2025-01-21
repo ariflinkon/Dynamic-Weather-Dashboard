@@ -1,3 +1,7 @@
+document.getElementById("toggleDarkMode").addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+});
+
 const citiesInBangladesh = [
   "Dhaka", "Chittagong", "Khulna", "Rajshahi", "Sylhet", "Barisal", "Rangpur", "Comilla", "Narayanganj", "Gazipur"
 ];
